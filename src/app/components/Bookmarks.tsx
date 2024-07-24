@@ -1,18 +1,23 @@
 import React from 'react';
-import { BookmarkType } from '@/types';
-import Bookmark from './Bookmark';
+
+import { BookmarksResponse } from '@/types';
+import Bookmark from '@/app/components/Bookmark';
+import Pagination from '@/app/components/Pagination';
 
 type Props = {
-    bookmarks: BookmarkType[]
+    bookmarks: BookmarksResponse,
+    query?: string
 }
 
-const Bookmarks: React.FC<Props> = ({bookmarks}) => {
+const Bookmarks: React.FC<Props> = ({bookmarks, query}) => {
     return (
         <div>
-            <h1>Welcome to Bookmarker</h1>
+            <Pagination bookmarks={bookmarks} query={query} />
             {
-            bookmarks.map(bookmark => <Bookmark key={bookmark.id} bookmark={bookmark} />)
-            }            
+                bookmarks.data.map(
+                    bookmark => <Bookmark key={bookmark.id} bookmark={bookmark} />
+                )
+            }  
         </div>
     );
 };

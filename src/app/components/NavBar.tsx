@@ -1,4 +1,3 @@
-import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Link from "next/link";
 
@@ -6,9 +5,9 @@ const NavBar = () => (
   <header>
     <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
       <div className="container-fluid">
-      <Link href="/bookmarks/add" className="nav-link">
-        Add Bookmark
-      </Link>
+        <Link href="/" className="navbar-brand">
+          Bookmarker
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -23,9 +22,9 @@ const NavBar = () => (
         <div className="collapse navbar-collapse" id="navbarCollapse">
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">
-              <Link href="/add" className="nav-link">
+              <Link href="/bookmarks/add" className="nav-link">
                 Add Bookmark
-              </Link>            
+              </Link>
             </li>
           </ul>
         </div>
